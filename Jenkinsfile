@@ -23,9 +23,9 @@ pipeline {
   stage('Deploy to Tomcat') {
       steps {
         sshagent(['tomcat']) {
-        sh 'scp -o StrictHostKeyChecking=no index.js ec2-user@172.31.36.182:/tomcat9/webapps'
-        sh 'ssh ec2-user@172.31.36.182:/tomcat9/bin/shutdown.sh'
-        sh 'ssh ec2-user@172.31.36.182:/tomcat9/bin/startup.sh'
+        sh 'scp -o StrictHostKeyChecking=no index.js ec2-user@172.31.36.182:/home/ec2-user/tomcat9/webapps'
+        sh 'ssh ec2-user@172.31.36.182 /home/ec2-user/tomcat9/bin/shutdown.sh'
+        sh 'ssh ec2-user@172.31.36.182 /home/ec2-user/tomcat9/bin/startup.sh'
         }
       }
     }

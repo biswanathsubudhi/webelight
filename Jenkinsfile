@@ -18,7 +18,7 @@ pipeline {
     
     stage('Achieve') {
       steps {
-        sh 'npm install'
+        sh 'tar czf webelight.tar.gz config models node_modules routes services index.js package.json package-lock.json'
       }
     }
     stage('Deploy to Tomcat') {
